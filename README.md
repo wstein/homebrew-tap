@@ -9,7 +9,7 @@ Or `brew tap wstein/tap` and then `brew install <formula>`.
 Or, in a `brew bundle` `Brewfile`:
 
 ```ruby
-tap "wstein/tap"
+brew tap "wstein/tap"
 brew "<formula>"
 ```
 
