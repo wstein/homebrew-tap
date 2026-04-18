@@ -1,8 +1,8 @@
 class CxCli < Formula
   desc "Deterministic context bundler built on top of Repomix."
   homepage "https://github.com/wstein/cx-cli"
-  url "https://registry.npmjs.org/@wsmy/cx-cli/-/cx-cli-0.3.16.tgz"
-  sha256 "a7162fe0770e90611482e27f62ea7dac9d9438205fa86020e8e414b59043a04b"
+  url "https://registry.npmjs.org/@wsmy/cx-cli/-/cx-cli-0.3.18.tgz"
+  sha256 "ada9bb79066bb1c9a3c0a683d3b28c94756d98d91510189f003efd71a75c5141"
   license "MIT"
 
   depends_on "node"
