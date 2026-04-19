@@ -1,8 +1,8 @@
 class CxCli < Formula
   desc "Deterministic context bundler built on top of Repomix."
   homepage "https://github.com/wstein/cx-cli"
-  url "https://registry.npmjs.org/@wsmy/cx-cli/-/cx-cli-0.3.25.tgz"
-  sha256 "b8ab9516ced56152793eeeadfdaa8de813ad302efe017676f6f30ff83e85693d"
+  url "https://registry.npmjs.org/@wsmy/cx-cli/-/cx-cli-0.3.27.tgz"
+  sha256 "5b8b73c2e12cadaf96df95d636efefc71c0e2a713c2336d3bfdb18ae0c20a290"
   license "MIT"
 
   depends_on "node"
@@ -12,10 +12,10 @@ class CxCli < Formula
            "install",
            "--omit=dev",
            "--no-audit",
-           "--no-fund",
-           "--prefix=#{libexec}",
-           buildpath
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+           "--no-fund"
+    libexec.install Dir["*"]
+    bin.install_symlink libexec/"bin/cx" => "cx-cli"
+    bin.install_symlink libexec/"bin/cx"
   end
 
   test do
