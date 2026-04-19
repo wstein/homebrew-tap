@@ -15,7 +15,7 @@ class CxCli < Formula
            "--no-audit",
            "--no-fund"
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/cx" => "cx-cli"
+    bin.install_symlink libexec/"bin/cx" => "cx"
     bin.install_symlink libexec/"bin/cx"
   end
 
