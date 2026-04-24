@@ -1,8 +1,8 @@
 class CxCli < Formula
   desc "Kernel-owned context bundler for deterministic AI handoff and verification"
   homepage "https://github.com/wstein/cx-cli"
-  url "https://registry.npmjs.org/@wsmy/cx-cli/-/cx-cli-0.5.0.tgz"
-  sha256 "c57c087315dba320c85cfdb7ebf2d2d527deaf057743fa366f06b994a66bc4fe"
+  url "https://registry.npmjs.org/@wsmy/cx-cli/-/cx-cli-0.5.1.tgz"
+  sha256 "b0890306e15281c2b3157373ea27b18e65a81cc56de1cb851f96838131813a3a"
   license "MIT"
 
   depends_on "node"
