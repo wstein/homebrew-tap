@@ -1,8 +1,8 @@
 class CxCli < Formula
-  desc "Repository-native toolchain for live MCP workspaces, durable notes, and verifiable AI handoffs"
+  desc "Repository-native toolchain for MCP workspaces and AI handoffs"
   homepage "https://github.com/wstein/cx-cli"
-  url "https://registry.npmjs.org/@wsmy/cx-cli/-/cx-cli-0.5.7.tgz"
-  sha256 "7b2e5879b2768915fb3ec95eba998e31b3e36f9cbd54e68c79f2dcaf81c20aa1"
+  url "https://registry.npmjs.org/@wsmy/cx-cli/-/cx-cli-0.5.8.tgz"
+  sha256 "8a0a4b4d8f43acb9608eef3fa03356727c029acb5cb666c734cddfa7b3274c81"
   license "MIT"
 
   depends_on "node"
