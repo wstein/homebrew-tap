@@ -1,8 +1,8 @@
 class Histlog < Formula
   desc "Log-structured shell history with NDJSON capture and SQLite query projection"
   homepage "https://github.com/wstein/histlog"
-  url "https://github.com/wstein/histlog/releases/download/v0.1.0/histlog-darwin-arm64-v0.1.0.tar.gz"
-  sha256 "e6204c37f0d615248d40670c1312e720f5e645f74d2033765c37fd4ae6a22a12"
+  url "https://github.com/wstein/histlog/releases/download/v0.1.1/histlog-darwin-arm64-v0.1.1.tar.gz"
+  sha256 "48dd637efe3b38b581458a8075c840d92a7eaf46b8a88b87b70725fa9a6b8dc2"
   license "MIT"
 
   depends_on "elixir"
