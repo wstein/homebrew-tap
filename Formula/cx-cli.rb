@@ -8,17 +8,11 @@ class CxCli < Formula
   depends_on "node"
 
   def install
-    system "npm",
-           "install",
-           *std_npm_args(prefix: false),
-           "--omit=dev",
-           "--no-audit",
-           "--no-fund"
-    libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/cx" => "cx"
+    system "npm", "install", *std_npm_args, "--omit=dev", "--no-audit", "--no-fund"
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
-    assert_match "cx", shell_output("#{bin}/cx --help")
+    assert_match version.to_s, shell_output("#{bin}/cx --version")
   end
 end
