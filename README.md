@@ -1,4 +1,4 @@
-# Wstein Tap
+# homebrew-tap
 
 Homebrew formulae maintained by [Werner Stein](https://github.com/wstein).
 
