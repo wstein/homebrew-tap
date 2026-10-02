@@ -35,78 +35,15 @@ brew install --build-from-source wstein/tap/<name>
 brew test wstein/tap/<name>
 ```
 
-## 3. Register it for automatic updates
+## 3. Register the formula
 
-1. **`.github/scripts/bump_formula.py`**: add an entry to `FORMULAE`: a regex
-   for the version inside the URL, and a function that rewrites the URL for a
-   new version. Check it is a no-op on the current version:
+1. **`.github/scripts/bump_formula.py`**: add an entry to `FORMULAE` (a regex
+   for the version inside the URL and a function that rewrites the URL for a
+   new version) so [manual bumps](updating-a-formula.md) work. Check it is a
+   no-op on the current version:
    `python3 .github/scripts/bump_formula.py <name> <current-version>` must leave
    `git diff` empty.
-2. **`.github/workflows/update-formula.yml`**: add `<name>` to the
-   `workflow_dispatch` options and to the `case` list in "Validate inputs".
-   Unknown names are rejected on purpose.
-3. **README**: add a row to the formulae table.
+2. **README**: add a row to the formulae table.
 
-Open a PR with conventional commits, for example
-`feat(<name>): add formula` and `ci: register <name> for auto-bump`.
+Open a PR with conventional commits, for example `feat(<name>): add formula`.
 Merging requires the three `test-bot` checks to be green.
-
-## 4. Wire up the upstream release
-
-In the upstream repository's release workflow, after the release assets or npm
-package are published, add:
-
-```yaml
-homebrew:
-  needs: [<publish-job>]
-  runs-on: ubuntu-latest
-  environment: homebrew
-  permissions: {}
-  steps:
-    - id: app
-      uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
-      with:
-        app-id: ${{ secrets.TAP_APP_ID }}
-        private-key: ${{ secrets.TAP_APP_PRIVATE_KEY }}
-        owner: wstein
-        repositories: homebrew-tap
-    - env:
-        GH_TOKEN: ${{ steps.app.outputs.token }}
-      run: |
-        gh api repos/wstein/homebrew-tap/dispatches \
-          -f event_type=new-release \
-          -f 'client_payload[formula]=<name>' \
-          -f 'client_payload[version]=<version without v>'
-```
-
-The assets must exist before this job runs, because the tap downloads them to
-compute checksums.
-
-Add the repo secrets `TAP_APP_ID` and `TAP_APP_PRIVATE_KEY` (in the `homebrew`
-environment) in the upstream repository.
-
-## 5. Check it end to end
-
-```sh
-gh workflow run update-formula.yml -R wstein/homebrew-tap -f formula=<name> -f version=<current-version>
-```
-
-Using the current version should end with "Formula already at …" and no PR.
-The first real release should produce a `bump/<name>-<version>` PR that
-merges itself after CI.
-
-## One-time setup (already done for this tap)
-
-- A GitHub App (`wstein-tap-bot`) with Contents and Pull requests write access,
-  installed on `homebrew-tap`; secrets `APP_ID` and `APP_PRIVATE_KEY` in the tap.
-- The `main` ruleset requiring a PR and the `test-bot` checks, and
-  "Allow auto-merge" enabled in the repo settings.
-
-## Troubleshooting
-
-- **Bump PR never gets CI**: it was opened with `GITHUB_TOKEN`. It must use the
-  App token, or workflows will not trigger.
-- **"no url/sha256 pair found"**: the formula's `url`/`sha256` lines are not
-  adjacent or are indented differently.
-- **Checksum download fails**: the dispatch ran before the assets were published.
-  Re-run with `workflow_dispatch`.

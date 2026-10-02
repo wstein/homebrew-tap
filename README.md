@@ -26,11 +26,10 @@ brew "<formula>"
 
 ## Updates
 
-New upstream releases are picked up automatically: the upstream release workflow
-dispatches a `new-release` event, and the tap opens a PR that bumps the formula
-and merges itself once `brew test-bot` passes on macOS (Intel and Apple Silicon
-runners) and Linux. To trigger a bump manually, run the `update formula`
-workflow.
+Formulae are updated manually after an upstream release; see
+[docs/updating-a-formula.md](docs/updating-a-formula.md). Every change goes
+through a PR and must pass `brew test-bot` on macOS (Intel and Apple Silicon
+runners) and Linux.
 
 ## Contributing
 
