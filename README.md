@@ -24,6 +24,18 @@ brew tap "wstein/tap"
 brew "<formula>"
 ```
 
+## Updates
+
+New upstream releases are picked up automatically: the upstream release workflow
+dispatches a `new-release` event, and the tap opens a PR that bumps the formula
+and merges itself once `brew test-bot` passes on macOS (Intel and Apple Silicon
+runners) and Linux. To trigger a bump manually, run the `update formula`
+workflow.
+
+## Contributing
+
+To add another app to this tap, see [docs/adding-a-formula.md](docs/adding-a-formula.md).
+
 ## Documentation
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
