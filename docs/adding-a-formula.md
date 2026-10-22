@@ -14,7 +14,7 @@ Create `Formula/<name>.rb` (lowercase, dashes). Pick the pattern that fits:
   (see `Formula/cx-cli.rb`).
 - **Prebuilt release archives**: one `url`/`sha256` pair per platform, chosen
   with `OS.mac?` / `Hardware::CPU.arm?` (see `Formula/histlog.rb`,
-  `Formula/smill.rb`, `Formula/cscribe.rb`). Declare only the platforms the
+  `Formula/smill.rb`, `Formula/cscribe.rb`, `Formula/whr.rb`). Declare only the platforms the
   upstream release really ships and Homebrew supports (macOS arm64/Intel,
   Linux x86_64/arm64); add `depends_on arch:` when a platform is missing.
   Inspect the archive first (`tar -tzf`): Homebrew strips a single top-level

@@ -12,6 +12,7 @@ The tap itself is licensed under the [EUPL-1.2](LICENSE). Each formula's `licens
 | `histlog` | Log-structured shell history with NDJSON capture and SQLite query projection | macOS (arm64), Linux (x86_64) |
 | `smill` | Git-native cheatsheet compiler for Markdown and YAML reference sheets | macOS (arm64), Linux (x86_64, arm64) |
 | `cscribe` | Plain-text Zettelkasten tooling for Markdown notes | macOS, Linux (x86_64, arm64) |
+| `whr` | Self-hosted development workspaces with devcontainer-native tooling | macOS (arm64), Linux (x86_64, arm64) |
 
 ## How do I install these formulae?
 
