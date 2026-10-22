@@ -37,6 +37,8 @@ runners) and Linux.
 
 To add another app to this tap, see [docs/adding-a-formula.md](docs/adding-a-formula.md).
 
+Coding agents (LLMs) should start with [AGENTS.md](AGENTS.md), which lists the formulae, the exact commands and the rules for pull requests.
+
 ## Documentation
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
