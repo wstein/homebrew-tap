@@ -25,7 +25,21 @@ FORMULAE = {
         re.compile(r"/v(\d[^/]*)/histlog-"),
         lambda url, v: re.sub(r"/v\d[^/]*/", f"/v{v}/", re.sub(r"-v\d[^/]*\.tar\.gz$", f"-v{v}.tar.gz", url)),
     ),
+    "smill": (
+        re.compile(r"/v(\d[^/]*)/smill_"),
+        lambda url, v: _release_url(url, "smill", v),
+    ),
+    "cscribe": (
+        re.compile(r"/v(\d[^/]*)/cscribe_"),
+        lambda url, v: _release_url(url, "cscribe", v),
+    ),
 }
+
+
+def _release_url(url: str, tool: str, v: str) -> str:
+    """Rewrite /vX.Y.Z/<tool>_X.Y.Z_<os>_<arch>.tar.gz; the version appears twice."""
+    url = re.sub(r"/v\d[^/]*/", f"/v{v}/", url)
+    return re.sub(rf"/{tool}_\d[^_/]*_", f"/{tool}_{v}_", url)
 
 
 def sha256_of(url: str) -> str:
