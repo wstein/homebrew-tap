@@ -33,6 +33,10 @@ FORMULAE = {
         re.compile(r"/v(\d[^/]*)/cscribe_"),
         lambda url, v: _release_url(url, "cscribe", v),
     ),
+    "cubacle": (
+        re.compile(r"/v(\d[^/]*)/cubacle_"),
+        lambda url, v: _release_url(url, "cubacle", v),
+    ),
     "whr": (
         re.compile(r"/v(\d[^/]*)/whr_"),
         lambda url, v: _release_url(url, "whr", v),
