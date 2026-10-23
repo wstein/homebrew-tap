@@ -5,18 +5,18 @@ class Cscribe < Formula
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/wstein/chartscribe/releases/download/v0.1.0/cscribe_0.1.0_darwin_arm64.tar.gz"
-      sha256 "7554f773e247f25a90179abd6daec915e05740aa5ca624795dffadc987e603db"
+      url "https://github.com/wstein/chartscribe/releases/download/v0.2.0/cscribe_0.2.0_darwin_arm64.tar.gz"
+      sha256 "5cee03335c244d413cccd701f9181ff202d31774cdc13556c61f61c209f7ba29"
     else
-      url "https://github.com/wstein/chartscribe/releases/download/v0.1.0/cscribe_0.1.0_darwin_amd64.tar.gz"
-      sha256 "5f7922db08d9b1ac93be769c3352fb9f970cd650ec07ca4ece9109eeedf23932"
+      url "https://github.com/wstein/chartscribe/releases/download/v0.2.0/cscribe_0.2.0_darwin_amd64.tar.gz"
+      sha256 "5d0d43977482ab672210ba5919f3d1bbd4751f173014c31d4cd862845bcd0438"
     end
   elsif Hardware::CPU.arm?
-    url "https://github.com/wstein/chartscribe/releases/download/v0.1.0/cscribe_0.1.0_linux_arm64.tar.gz"
-    sha256 "a2acd240ceeaad7de1b9ecaf62c45843ced1ea65ba23c35bc9696f46bbefe4b0"
+    url "https://github.com/wstein/chartscribe/releases/download/v0.2.0/cscribe_0.2.0_linux_arm64.tar.gz"
+    sha256 "f32a2d59b8ec3a172651ef347bdff02726e3bad1fe1fe5a6a4014523b9324914"
   else
-    url "https://github.com/wstein/chartscribe/releases/download/v0.1.0/cscribe_0.1.0_linux_amd64.tar.gz"
-    sha256 "b8941a418cec616df6d142d1008dd0bef7c8aea98c32911b724620e666a572cf"
+    url "https://github.com/wstein/chartscribe/releases/download/v0.2.0/cscribe_0.2.0_linux_amd64.tar.gz"
+    sha256 "85cf6ee25a9b5dca29c766638f123fc733c38cc1f466c867a1f510e0e0b6eda8"
   end
 
   def install
