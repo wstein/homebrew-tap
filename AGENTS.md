@@ -14,6 +14,7 @@ repositories. Humans: see [README.md](README.md) and [docs/](docs/).
 | `cscribe` | wstein/chartscribe | prebuilt archives (macOS arm64/Intel, Linux x86_64/arm64) |
 | `cubacle` | wstein/cubacle | prebuilt archives (macOS arm64/Intel, Linux x86_64/arm64) |
 | `whr` | wstein/workharbor | prebuilt archives (macOS arm64, Linux x86_64/arm64) |
+| `stw` | wstein/sourcesteward | prebuilt archives (macOS arm64/Intel, Linux x86_64/arm64) |
 
 ## Bump a formula
 

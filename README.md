@@ -14,6 +14,7 @@ The tap itself is licensed under the [EUPL-1.2](LICENSE). Each formula's `licens
 | `cscribe` | Plain-text Zettelkasten tooling for Markdown notes | macOS, Linux (x86_64, arm64) |
 | `cubacle` | Rubik's cube solver and generator for 2x2 to 7x7 with a REST backend | macOS, Linux (x86_64, arm64) |
 | `whr` | Self-hosted development workspaces with devcontainer-native tooling | macOS (arm64), Linux (x86_64, arm64) |
+| `stw` | Read-only overview and stateless issue/PR tooling for GitHub workspaces (needs Git 2.46+) | macOS, Linux (x86_64, arm64) |
 
 ## How do I install these formulae?
 

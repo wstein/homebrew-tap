@@ -41,6 +41,10 @@ FORMULAE = {
         re.compile(r"/v(\d[^/]*)/whr_"),
         lambda url, v: _release_url(url, "whr", v),
     ),
+    "stw": (
+        re.compile(r"/v(\d[^/]*)/stw_"),
+        lambda url, v: _release_url(url, "stw", v),
+    ),
 }
 
 
