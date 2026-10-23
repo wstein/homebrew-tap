@@ -15,6 +15,7 @@ repositories. Humans: see [README.md](README.md) and [docs/](docs/).
 | `cubacle` | wstein/cubacle | prebuilt archives (macOS arm64/Intel, Linux x86_64/arm64) |
 | `whr` | wstein/workharbor | prebuilt archives (macOS arm64, Linux x86_64/arm64) |
 | `stw` | wstein/sourcesteward | prebuilt archives (macOS arm64/Intel, Linux x86_64/arm64) |
+| `bdock` | wstein/bundledock | prebuilt archives (macOS arm64, Linux x86_64/arm64); tag `bdock/vX.Y.Z` |
 
 ## Bump a formula
 
@@ -23,6 +24,7 @@ git fetch origin && git switch -c bump/<name>-<version> origin/main
 python3 .github/scripts/bump_formula.py <name> <version>   # downloads assets, rewrites url + sha256
 git diff                                                   # every platform pair must change
 gh release download v<version> -R <owner/repo> -p SHA256SUMS -O -   # digests must match
+# prefixed tag (bdock): bdock/v<version> instead of v<version>
 git commit -am "chore(<name>): update to v<version>"
 git push -u origin HEAD && gh pr create --fill
 ```
@@ -47,6 +49,8 @@ check `python3 .github/scripts/bump_formula.py <name> <current-version>` leaves
   The owner merges.
 - Keep each `url "…"` immediately followed by `sha256 "…"` with equal
   indentation; the bump script depends on it.
+- Tags with a path prefix (`bdock/v…`) need an explicit top-level `version` line
+  (Homebrew cannot parse the version from the URL); the bump script updates it.
 - Never edit a `sha256` by hand: compute it from the downloaded asset (the
   script does) and cross-check against the release's `SHA256SUMS`.
 - `test do` must be real and must not use the network or the user's files:

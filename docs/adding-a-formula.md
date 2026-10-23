@@ -32,6 +32,9 @@ Rules the bump script relies on:
   For GitHub releases of the shape
   `…/releases/download/vX.Y.Z/<tool>_X.Y.Z_<os>_<arch>.tar.gz` the version
   appears twice; the bump script rewrites both.
+- A release tag with a path prefix (`bdock/v0.1.0`) needs an explicit top-level
+  `version "X.Y.Z"` line, because Homebrew cannot parse the version from such a
+  URL (it detected `64`). The bump script rewrites an existing `version` line.
 - Never type a `sha256` by hand. Compute it from the downloaded asset and
   cross-check it against the release's `SHA256SUMS` asset (below).
 - `license` is the upstream SPDX identifier (check the upstream `LICENSE`).

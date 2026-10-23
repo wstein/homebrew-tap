@@ -15,6 +15,10 @@ from pathlib import Path
 SEMVER = re.compile(r"^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$")
 URL_LINE = re.compile(r'^(?P<indent>\s*)url "(?P<url>[^"]+)"\n(?P=indent)sha256 "[0-9a-f]{64}"$', re.M)
 
+# Optional explicit top-level version line (needed when the URL does not
+# expose the version to Homebrew, e.g. tags with a path prefix such as bdock/v0.1.0).
+VERSION_LINE = re.compile(r'^(  version )"[^"]+"$', re.M)
+
 # formula -> (regex matching the version inside a url, template for the new url)
 FORMULAE = {
     "cx-cli": (
@@ -44,6 +48,10 @@ FORMULAE = {
     "stw": (
         re.compile(r"/v(\d[^/]*)/stw_"),
         lambda url, v: _release_url(url, "stw", v),
+    ),
+    "bdock": (
+        re.compile(r"/bdock/v(\d[^/]*)/bdock_"),
+        lambda url, v: _release_url(url, "bdock", v),
     ),
 }
 
@@ -88,6 +96,7 @@ def main() -> int:
     if n == 0:
         print("no url/sha256 pair found", file=sys.stderr)
         return 1
+    new_text = VERSION_LINE.sub(lambda m: f'{m[1]}"{version}"', new_text)
     path.write_text(new_text)
     return 0
 

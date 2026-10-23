@@ -37,6 +37,11 @@ checksum file:
 gh release download v<version> -R <owner/repo> -p SHA256SUMS -O -
 ```
 
+A formula whose release tag has a prefix (`bdock`) uses `<prefix>/v<version>`
+(`bdock/v<version>`) instead of `v<version>`.
+Such a formula also carries an explicit `version` line, which the script updates
+along with url and sha256.
+
 Every digest the script printed must appear there for the same file name. If
 not, stop and investigate; do not edit the checksum by hand.
 
