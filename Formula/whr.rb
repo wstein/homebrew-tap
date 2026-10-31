@@ -4,15 +4,15 @@ class Whr < Formula
   license "EUPL-1.2"
 
   if OS.mac?
-    url "https://github.com/wstein/workharbor/releases/download/v0.1.0/whr_0.1.0_darwin_arm64.tar.gz"
-    sha256 "e97074b75b4aa715db60f76b896f43b1f5975703c3d1158fca9c5cf37df2a18a"
+    url "https://github.com/wstein/workharbor/releases/download/v0.2.0/whr_0.2.0_darwin_arm64.tar.gz"
+    sha256 "6458b1bf83095a989941b7f23dc61e06d07ee771c7f76f1373dd97d561c7b07d"
     depends_on arch: :arm64
   elsif Hardware::CPU.arm?
-    url "https://github.com/wstein/workharbor/releases/download/v0.1.0/whr_0.1.0_linux_arm64.tar.gz"
-    sha256 "42930ee6e41349facc49921e0b51667cbcb737a5d9ef3488544d6c1e5ec2be2a"
+    url "https://github.com/wstein/workharbor/releases/download/v0.2.0/whr_0.2.0_linux_arm64.tar.gz"
+    sha256 "b0f8bcd408d8b123014896345dfff2ac8472e24dc479de6f49cec8f275ae36bf"
   else
-    url "https://github.com/wstein/workharbor/releases/download/v0.1.0/whr_0.1.0_linux_amd64.tar.gz"
-    sha256 "5bbbf4950b22154332d67e7a3bc7187d959aabb3ea6e702a6516c66882e5ff64"
+    url "https://github.com/wstein/workharbor/releases/download/v0.2.0/whr_0.2.0_linux_amd64.tar.gz"
+    sha256 "791105a1804239c3567c082c516229d4ff5422c9f0cfb7fa40d7900d72f0fd83"
   end
 
   def install
