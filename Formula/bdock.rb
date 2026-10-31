@@ -1,19 +1,19 @@
 class Bdock < Formula
   desc "Build and manage OCI tool bundles"
   homepage "https://github.com/wstein/bundledock"
-  version "0.1.0"
+  version "0.2.0"
   license "EUPL-1.2"
 
   if OS.mac?
-    url "https://github.com/wstein/bundledock/releases/download/bdock/v0.1.0/bdock_0.1.0_darwin_arm64.tar.gz"
-    sha256 "e92439b8e0e632b4fa5afcd0af361646ac1d70faa9c6caafa29ecb1a88236e4e"
+    url "https://github.com/wstein/bundledock/releases/download/bdock/v0.2.0/bdock_0.2.0_darwin_arm64.tar.gz"
+    sha256 "fb1374f52981a788656b7d9342506235e06626a1430b93aa51526ab148fd0c8c"
     depends_on arch: :arm64
   elsif Hardware::CPU.arm?
-    url "https://github.com/wstein/bundledock/releases/download/bdock/v0.1.0/bdock_0.1.0_linux_arm64.tar.gz"
-    sha256 "f48370470c029ba821c3602a09bd959c395e3a29b3fc24d91224c147a1ed64bd"
+    url "https://github.com/wstein/bundledock/releases/download/bdock/v0.2.0/bdock_0.2.0_linux_arm64.tar.gz"
+    sha256 "b03e24bc3d132e9907ce7469d7ad3b1ecfefa2c75883e620856059ed2c4b67f3"
   else
-    url "https://github.com/wstein/bundledock/releases/download/bdock/v0.1.0/bdock_0.1.0_linux_amd64.tar.gz"
-    sha256 "d86feb7f1a925023b74d218877e3f7d83698a66687ed22770b778132d5271b32"
+    url "https://github.com/wstein/bundledock/releases/download/bdock/v0.2.0/bdock_0.2.0_linux_amd64.tar.gz"
+    sha256 "750129c7b43586b0cbf35a26de5bf233b0a5bccc1ba2bbc86c60be784cce3bf4"
   end
 
   def install
