@@ -5,18 +5,18 @@ class Stw < Formula
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/wstein/sourcesteward/releases/download/v0.2.0/stw_0.2.0_darwin_arm64.tar.gz"
-      sha256 "bf483b76c5339d104962ae1b9fa9e7fe99cbaeb2c73a0ddc161dc333715e9e07"
+      url "https://github.com/wstein/sourcesteward/releases/download/v0.2.1/stw_0.2.1_darwin_arm64.tar.gz"
+      sha256 "b80b8f61777ec27ffcd543c6b21c73eca2074ade25409cd38cf359cbfbffd92e"
     else
-      url "https://github.com/wstein/sourcesteward/releases/download/v0.2.0/stw_0.2.0_darwin_amd64.tar.gz"
-      sha256 "0014acd6d08463ef6aeb31b891dffcc0f9e622eb9824f59a5cf567c23e8296fb"
+      url "https://github.com/wstein/sourcesteward/releases/download/v0.2.1/stw_0.2.1_darwin_amd64.tar.gz"
+      sha256 "b617c17b03d9f8cd3865873bc36635acc94065405c7107e0c3de07b6a4e01de0"
     end
   elsif Hardware::CPU.arm?
-    url "https://github.com/wstein/sourcesteward/releases/download/v0.2.0/stw_0.2.0_linux_arm64.tar.gz"
-    sha256 "f4cd56d7612da98fb176ffedb36de6c83ba1a54623680ddbd40aec91cf8ad75b"
+    url "https://github.com/wstein/sourcesteward/releases/download/v0.2.1/stw_0.2.1_linux_arm64.tar.gz"
+    sha256 "1bcf09c58236085df360b7ca1994db53efe1b140b7589fb300ef6b833caa5ca9"
   else
-    url "https://github.com/wstein/sourcesteward/releases/download/v0.2.0/stw_0.2.0_linux_amd64.tar.gz"
-    sha256 "5fb21024b6c1d545bc8d377597995a8b71e3bcafeea232e9f693525d09de0f1e"
+    url "https://github.com/wstein/sourcesteward/releases/download/v0.2.1/stw_0.2.1_linux_amd64.tar.gz"
+    sha256 "33ef6a3610f3d0d3c2371d7f0de780be6d02827bd893d398f47d7c699137ffce"
   end
 
   def install
