@@ -46,8 +46,8 @@ FORMULAE = {
         lambda url, v: _release_url(url, "whr", v),
     ),
     "stw": (
-        re.compile(r"/v(\d[^/]*)/stw_"),
-        lambda url, v: _release_url(url, "stw", v),
+        re.compile(r"/v(\d[^/]*)/stw_v"),
+        lambda url, v: re.sub(r"/v\d[^/]*/stw_v\d[^_/]*_", f"/v{v}/stw_v{v}_", url),
     ),
     "bdock": (
         re.compile(r"/bdock/v(\d[^/]*)/bdock_"),
