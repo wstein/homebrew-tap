@@ -1,7 +1,6 @@
 class Stw < Formula
   desc "Git workspace inspection, change planning, and review handoffs"
   homepage "https://github.com/wstein/sourcesteward"
-  version "0.5.0"
   license "EUPL-1.2"
 
   if OS.mac?
