@@ -1,37 +1,40 @@
 class Stw < Formula
-  desc "Read-only overview and stateless issue/PR tooling for GitHub workspaces"
+  desc "Git workspace inspection, change planning, and review handoffs"
   homepage "https://github.com/wstein/sourcesteward"
+  version "0.5.0"
   license "EUPL-1.2"
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/wstein/sourcesteward/releases/download/v0.2.1/stw_0.2.1_darwin_arm64.tar.gz"
-      sha256 "b80b8f61777ec27ffcd543c6b21c73eca2074ade25409cd38cf359cbfbffd92e"
+      url "https://github.com/wstein/sourcesteward/releases/download/v0.5.0/stw_v0.5.0_darwin_arm64.tar.gz"
+      sha256 "1e8c8895eb642dfb11d47ad1691dbcc55838dc5dc9ff7440199c3f4b790a8db1"
     else
-      url "https://github.com/wstein/sourcesteward/releases/download/v0.2.1/stw_0.2.1_darwin_amd64.tar.gz"
-      sha256 "b617c17b03d9f8cd3865873bc36635acc94065405c7107e0c3de07b6a4e01de0"
+      url "https://github.com/wstein/sourcesteward/releases/download/v0.5.0/stw_v0.5.0_darwin_x86_64.tar.gz"
+      sha256 "af5148536b1fe24654ea5b98e33db3cc0db0379cd218dc37a69289da52397d6b"
     end
   elsif Hardware::CPU.arm?
-    url "https://github.com/wstein/sourcesteward/releases/download/v0.2.1/stw_0.2.1_linux_arm64.tar.gz"
-    sha256 "1bcf09c58236085df360b7ca1994db53efe1b140b7589fb300ef6b833caa5ca9"
+    url "https://github.com/wstein/sourcesteward/releases/download/v0.5.0/stw_v0.5.0_linux_arm64.tar.gz"
+    sha256 "3018aab0b368eed33d12c0d3977f5818c2c1edb9ba1c70597a3bf12fff9f8ad9"
   else
-    url "https://github.com/wstein/sourcesteward/releases/download/v0.2.1/stw_0.2.1_linux_amd64.tar.gz"
-    sha256 "33ef6a3610f3d0d3c2371d7f0de780be6d02827bd893d398f47d7c699137ffce"
+    url "https://github.com/wstein/sourcesteward/releases/download/v0.5.0/stw_v0.5.0_linux_x86_64.tar.gz"
+    sha256 "aeade263946bf77d7c4b32551638e2c262cfd08c09f1f83a520a679958b096da"
   end
 
   def install
     bin.install "stw"
+    pkgshare.install "LICENSE", "LICENSE-git-absorb-BSD-3"
   end
 
   def caveats
     <<~EOS
-      stw inspects repositories with your own tools: Git 2.46 or newer is
-      required for Git repositories. Native jj repositories need jj 0.45.1+ and
-      bubblewrap (Linux) or sandbox-exec (macOS).
+      SourceSteward is experimental. Write operations such as absorb --apply
+      can rewrite Git history. Review the plan before applying it.
     EOS
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/stw version")
+    assert_equal "stw #{version}", shell_output("#{bin}/stw --version").strip
+    system "git", "init", "--quiet", "--initial-branch=main", testpath
+    assert_match "main", shell_output("#{bin}/stw status --root . --offline")
   end
 end
